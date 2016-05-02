@@ -1,0 +1,14 @@
+<ion-modal-view ng-controller="settingsCtrl">
+<ion-header-bar class="bar-dark">
+  <h1 class="title">Réglages</h1>
+  <button class="button icon ion-close" ng-click="closeModal()"></button>
+</ion-header-bar>
+<ion-content>
+  <label class = "item item-input item-select ">
+    <div class = "input-label">Faculte</div>
+
+    <select ng-options="faculte as faculte.completeName for faculte in facultes"
+            ng-model="selectedFaculte" ng-change="updateFaculte(selectedFaculte)"></select>
+  </label>
+</ion-content>
+</ion-modal-view>

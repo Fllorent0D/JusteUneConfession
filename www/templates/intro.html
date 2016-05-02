@@ -1,0 +1,52 @@
+
+<ion-view ng-controller="IntroCtrl" >
+   <ion-slide-box on-slide-changed="slideChanged(index)" class="background">
+    <ion-slide>
+      <h3>Merci d'avoir installé JusteUneConfession</h3>
+      <div id="logo">
+        <img src="img/icon.png">
+      </div>
+      <p>
+        Nous devons configurer certaines petites choses ensemble :)
+      </p>
+      <small>Fais glisser ton doigt de droite à gauche</small>
+    </ion-slide>
+    <ion-slide>
+      <h3>Quelle page Facebook t'intéresse?</h3>
+      <p>Il faut faire des choix dans la vie</p>
+      <label class = "item item-input item-select ">
+        <div class = "input-label">Faculte</div>
+
+        <select ng-options="faculte as faculte.completeName for faculte in facultes"
+                ng-model="selectedItem" ng-change="updateFaculte(selectedItem)"></select>
+      </label>
+
+      <small>Première étape est terminée!</small>
+
+    </ion-slide>
+     <ion-slide>
+       <h3>Reste connecté!</h3>
+       <p>
+        not implemented
+       </p>
+       <button class="button button-positive">
+         Connexion
+       </button>
+       <small>C'est bientôt la fin...</small>
+       <h3 style="padding-top: 80px">Recevoir des notifications?</h3>
+       <p>
+         not implemented
+       </p>
+       <button class="button button-light">
+         Commencer
+       </button>
+     </ion-slide>
+    <ion-slide>
+      <h3>C'est fini!</h3>
+      <p></p>
+      <button class="button button-positive" ng-click="startApp()">
+        Commencer!
+      </button>
+    </ion-slide>
+  </ion-slide-box>
+</ion-view>

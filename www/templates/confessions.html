@@ -1,0 +1,34 @@
+
+<ion-view view-title="{{viewName}}" >
+
+  <ion-content lazy-scroll class="background" overflow-scroll="trues">
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="resetList()">
+    </ion-refresher>
+    <div ng-repeat="confession in confessions">
+      <div class="list list-inset">
+      <div class="item item-divider">
+        <h2>{{completeName}} #{{confession.number}}</h2>
+        <p ng-bind-html="confession.created_time"></p>
+      </div>
+      <div class="item item-text-wrap">
+        <p ng-bind-html="confession.message "></p>
+
+          <span ng-if="confession.picture">
+              <img image-lazy-src="{{confession.picture}}"  image-lazy-loader="lines" class="full-image row-center">
+          </span>
+      </div>
+      <div class="item item-divider">
+        <a href="#" class="subdued">{{confession.likes}} Likes</a>
+        <a href="#" class="subdued">{{confession.comments}} Commentaires</a>
+      </div>
+  </div>
+    </div>
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

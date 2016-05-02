@@ -1,0 +1,38 @@
+
+<ion-view view-title="{{viewName}}" >
+
+  <ion-content class="background">
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="resetList()">
+    </ion-refresher>
+
+    <div ng-show="confessions.length" ng-repeat="(key, value) in confessions">
+      <h1 class="text-center" style="padding-top: 20px;mar">{{key + 1}}</h1>
+
+      <div class="list list-inset">
+
+        <div class="item item-divider">
+          <h2>{{completeName}} #{{value.number}}</h2>
+          <p ng-bind-html="value.created_time"></p>
+        </div>
+        <div class="item item-text-wrap">
+          <p ng-bind-html="value.message "></p>
+
+          <span ng-if="value.picture">
+              <img ng-src="{{value.picture}}" class="full-image row-center">
+          </span>
+        </div>
+        <div class="item item-divider">
+          <a href="#" class="subdued">{{value.likes}} Likes</a>
+          <a href="#" class="subdued">{{value.comments}} Commentaires</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 ng-show="!confessions.length" class="text-center" style="padding-top: 30px">Pas de confessions aujourd'hui</h3>
+
+  </div>
+  </ion-content>
+</ion-view>
